@@ -1,0 +1,54 @@
+DELETE race
+
+PUT race
+
+////////  ingest data /////////
+
+GET race/_mapping
+
+GET race/_search 
+{"query": {"match_all": {}}}
+
+
+GET race/_search
+{"query": {
+    "bool": {
+      "must": [
+        {"match": {
+          "Lap": 1
+        }}
+      ]
+  }
+}}
+
+
+GET race/_search
+{"query": {
+    "bool": {
+      "must": [
+        {"match": {
+          "Lap": 1
+        }}
+      ]
+  }
+}}
+
+
+GET race/_search
+{"query": {
+    "bool": {
+      "must": [
+        {"match": {
+          "Driver": "kiarash"
+        }},
+        {
+        "range": {
+          "TimeStamp": {
+            "gte": 4,
+            "lte": 5
+          }
+        }
+      }
+      ]
+  }
+}}
